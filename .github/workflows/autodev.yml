@@ -10,7 +10,13 @@ on:
 jobs:
   autodev:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: Staffbase/autodev-action@feat/conflict-blame-comments
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
