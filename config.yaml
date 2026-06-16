@@ -3,5 +3,5 @@
 
 service:
   name: my-service
-  version: "1.0.0"
-  replicas: 1
+  version: "2.0.0"
+  replicas: 5
