@@ -1,7 +1,4 @@
-# config.yaml
-# Both PRs will edit this file to produce a merge conflict.
-
 service:
   name: my-service
-  version: "1.0.0"
+  version: "1.1.0"
   replicas: 1
