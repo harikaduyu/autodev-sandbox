@@ -1,0 +1,23 @@
+name: AutoDev
+
+on:
+  pull_request:
+    types: [labeled, unlabeled, closed]
+  push:
+    branches-ignore:
+      - dev
+
+jobs:
+  autodev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Staffbase/autodev-action@feat/conflict-blame-comments
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: dev
+          label: dev
+          comments: "true"
+          labels: "true"
+          success_label: "dev-ok"
+          failure_label: "dev-failed"
