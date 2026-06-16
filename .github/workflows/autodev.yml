@@ -13,10 +13,13 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    if: github.actor != 'dependabot[bot]' && (github.event_name == 'push' || github.event.label.name == 'dev' || github.event.action == 'closed')
     steps:
       - uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          fetch-tags: false
       - uses: Staffbase/autodev-action@feat/conflict-blame-comments
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
