@@ -1,0 +1,3 @@
+# This file will be deleted by one PR and modified by another
+service: legacy
+version: "0.1.0"
